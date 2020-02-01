@@ -43,5 +43,42 @@ class LinkedList:
     return False
 
   def reverse_list(self):
-    # TO BE COMPLETED
+    # Make a solution LInked List
+    solution_list = LinkedList()
+    # read from self.head and make it the head of the new list, REPEAT 
+    node = Node()
+    while self.head != None:
+      new_list_head = self.head.value
+      solution_list.add_to_head(new_list_head)
+      self.head = self.head.next_node
+    print("\n")
+    return solution_list
+
     pass
+
+
+example = LinkedList()
+example.add_to_head(3)
+example.add_to_head(2)
+example.add_to_head(1)
+
+
+# print the example so we can see it
+node = example.head
+while node:
+  print(node.value)
+  node = node.next_node
+
+reverse_example = example.reverse_list()   # which is solution_list in the method
+
+#print the reversed example
+node = reverse_example.head
+while node:
+  print("reversed...")
+  print(node.value)
+  node = node.next_node
+
+
+
+
+
