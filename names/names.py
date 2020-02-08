@@ -9,29 +9,29 @@ class BinarySearchTree:
 
     def insert(self, value):
         if value >= self.value:
-            if not self.right:
+            if self.right is None:
                 self.right = BinarySearchTree(value)
             else:
                 self.right.insert(value)
         else:
-            if not self.left:
+            if self.left is None:
                 self.left = BinarySearchTree(value)
             else:
                 self.left.insert(value)
 
-    def contains(self, this_guy):
-        if self.value == this_guy:
+    def contains(self, target):
+        if self.value == target:
             return True
-        if this_guy > self.value:
-            if not self.right:
+        if target > self.value:
+            if self.right is None:
                 return False
             else:
-                self.right.contains(this_guy)
+                self.right.contains(target)
         else:
-            if not self.left:
+            if self.left is None:
                 return False
             else:
-                self.left.contains(this_guy)
+                self.left.contains(target)
     
 
 start_time = time.time()
@@ -47,17 +47,20 @@ f.close()
 duplicates = []  # Return the list of duplicates in this data structure
 
 # Replace the nested for loops below with your improvements
-
-
+print("names 2..."); print(len(names_2))
+#print(names_2); print(f"\n\n")
+print("NAMES 1..."); print(len(names_1))
+#print(names_1)
 # Will need to implement a binary tree to make the names search go faster...
 # Just put name_2 into a binary tree, and do the same logic as below
 
-names_2_tree_version = BinarySearchTree(names_2[0])
+names_2_tree_version = BinarySearchTree("shitball")
+
 for each_name in names_2:
-    for i in (1, len(names_2)):
-        names_2_tree_version.insert(each_name)
+    names_2_tree_version.insert(each_name)
 
 for this_name in names_1:
+    #print(this_name)
     if names_2_tree_version.contains(this_name):
         duplicates.append(this_name)
 
