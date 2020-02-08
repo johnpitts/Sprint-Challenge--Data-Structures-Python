@@ -43,5 +43,70 @@ class LinkedList:
     return False
 
   def reverse_list(self):
-    # TO BE COMPLETED
-    pass
+    if self.head == None:
+      print("test of length 0")
+      return None
+    elif self.head.get_next() == None:
+      print("test of length 1")
+      return self
+    else:
+      # This works for a list of length 2
+      print("longer list test")
+      print(self.head.value)
+      left = None
+      current = self.head
+      right = self.head.get_next()
+      while current:
+        current.set_next(left)
+        left = current
+        current = right
+        if right:
+          right = current.get_next()
+      self.head = left
+
+
+
+
+
+
+
+
+    # # Make a solution LInked List
+    # solution_list = LinkedList()
+    # # read from self.head and make it the head of the new list, REPEAT 
+    # node = Node()
+    # while self.head != None:
+    #   new_list_head = self.head.value
+    #   solution_list.add_to_head(new_list_head)
+    #   self.head = self.head.next_node
+    # print("\n")
+    # return solution_list
+
+
+# example = LinkedList()
+# example.add_to_head(4)
+# example.add_to_head(3)
+# example.add_to_head(2)
+# example.add_to_head(1)
+
+
+# # print the example so we can see it
+# node = example.head
+# while node:
+#   print(node.value)
+#   node = node.next_node
+
+# reverse_example = example.reverse_list()   # which is solution_list in the method
+
+# #print the reversed example
+# node = reverse_example.head
+# print("entering While to reverse...")
+# while node:
+#   #print("reversed...")
+#   print(node.value)
+#   node = node.next_node
+
+
+
+
+
