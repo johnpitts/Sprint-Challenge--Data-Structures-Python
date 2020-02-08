@@ -12,9 +12,10 @@ class RingBuffer:
         # Here we simply add until filling the RingBuffer
         print(f"{len(self.storage)}, {self.capacity}")
         if len(self.storage) < self.capacity:
-            print("whoops")
             self.storage.add_to_tail(item)
             self.pointer = self.storage.head
+            print(f"only runs at beginning tail {self.storage.tail.value}")
+            print(f"headcase pointer is {self.pointer.value}")
         # Now we start replacing, instead of adding
         else:
             temp_tail = False
@@ -37,9 +38,12 @@ class RingBuffer:
                 self.pointer.insert_after(item)
                 self.storage.delete(self.pointer)
                 self.pointer = temp
-                print(f"middlecase pointer is {self.pointer.value}")
-                self.storage.tail = temp
+                print(f"middlecase pointer is {self.pointer.value} tail is")
                 self.storage.length += 1
+                if len(self.storage) < 5:
+                    self.storage.tail = self.storage.tail.next
+
+                
                 
 
 
